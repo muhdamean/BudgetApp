@@ -15,7 +15,7 @@ namespace BudgetApp
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new DashboardPage());
+            MainPage = new NavigationPage(new IncomeExpensePage());
         }
 
         protected override void OnStart ()
