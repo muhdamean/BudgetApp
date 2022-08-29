@@ -7,8 +7,8 @@
     NavigationPage.HasNavigationBar="False"
     BackgroundColor="{DynamicResource PrimaryColor}">
 
-    <Grid RowDefinitions="Auto, Auto, Auto, *" Padding="25">
-        <Grid ColumnDefinitions="Auto,*">
+    <Grid RowDefinitions="Auto, Auto, Auto, *" Padding="25" RowSpacing="25">
+        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="25">
             <ImageButton BackgroundColor="Transparent" Source="menu.png"
                          HeightRequest="18" WidthRequest="18"
                          VerticalOptions="Center"></ImageButton>
@@ -16,8 +16,8 @@
                    VerticalOptions="Center" FontSize="18" FontFamily="NormalFont"></Label>
         </Grid>
         <pv:PancakeView Grid.Row="1" CornerRadius="15" BackgroundColor="{DynamicResource SecondaryColor}"
-                        HeightRequest="215" Margin="0,50,0,50" Padding="10">
-            <Grid ColumnDefinitions="*,*" RowDefinitions="*,1.2">
+                        HeightRequest="215" Margin="0,50,0,0" Padding="10">
+            <Grid ColumnDefinitions="*,*" RowDefinitions="*,1.2*">
                 <StackLayout Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="Center">
                     <Label Text="Current balance" HorizontalOptions="Center"
                            FontSize="14" FontFamily="NormalFont" TextColor="White"></Label>
@@ -26,12 +26,69 @@
                 </StackLayout>
                 <pv:PancakeView Grid.Row="1" Padding="15" CornerRadius="15"
                                 BackgroundColor="{DynamicResource OffwhiteColor}">
-                    <Ellipse Style="{StaticResource DotEllipse}" Stroke="{DynamicResource SkyBlueColor}"></Ellipse>
-
+                    <StackLayout Spacing="10">
+                        <Ellipse Style="{StaticResource DotEllipse}" Stroke="{DynamicResource SkyBlueColor}"></Ellipse>
+                        <StackLayout Spacing="5">
+                            <Label Text="$7,500.90" FontSize="20" FontFamily="LightFont" TextColor="#2C2A57"></Label>
+                            <Label Text="Income this month" TextColor="#2C2A57"
+                               FontSize="12" WidthRequest="70" HorizontalOptions="Start"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                </pv:PancakeView>
+                <pv:PancakeView Grid.Row="1" Grid.Column="1" Padding="15" CornerRadius="15"
+                                BackgroundColor="{DynamicResource OffwhiteColor}">
+                    <StackLayout Spacing="10">
+                        <Ellipse Style="{StaticResource DotEllipse}" Stroke="{DynamicResource OrangeColor}"></Ellipse>
+                        <StackLayout Spacing="5">
+                            <Label Text="$620.11" FontSize="20" FontFamily="LightFont" TextColor="#2C2A57"></Label>
+                            <Label Text="Expenses this month" TextColor="#2C2A57"
+                               FontSize="12" WidthRequest="80" HorizontalOptions="Start"></Label>
+                        </StackLayout>
+                    </StackLayout>
                 </pv:PancakeView>
             </Grid>
 
         </pv:PancakeView>
+        <pv:PancakeView Grid.Row="2" Padding="10,5" CornerRadius="10" HeightRequest="40" BackgroundColor="White">
+            <Grid ColumnDefinitions="*,Auto">
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                    <Image Source="info" WidthRequest="28" HeightRequest="28"></Image>
+                    <Label Text="You're running of budget!" VerticalOptions="Center"></Label>
+                </StackLayout>
+                <Path  Fill="{DynamicResource SecondaryColor}"  Grid.Column="1" VerticalOptions="Center"
+                      Data="M14.331,10.056l-2.922-2.92a.55.55,0,0,1,0-.779.556.556,0,0,1,.782,0L15.5,9.665a.551.551,0,0,1,.016.761l-3.324,3.331a.552.552,0,1,1-.782-.779Z"></Path>
+            </Grid>
+        </pv:PancakeView>
+
+        <CollectionView Grid.Row="3">
+            <CollectionView.Header>
+                <Label Text="ACTIVITIES" FontSize="12" FontFamily="NormalFont"
+                       TextColor="{DynamicResource TertiaryColor}"></Label>
+            </CollectionView.Header>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                     <Grid  ColumnDefinitions="*,2*,3*" VerticalOptions="Start" ColumnSpacing="12">
+                        <Ellipse Style="{StaticResource DotEllipse}"
+                                    Stroke="{DynamicResource OrangeColor}"
+                                    VerticalOptions="Center"></Ellipse>
+                        <StackLayout Grid.Column="1">
+                            <Label Text="UI/UX design" FontFamily="normal " FontSize="14" TextColor="White"></Label>
+                            <Label Text="Tuesday, June 20, 2020" FontFamily="NormalFont"
+                                    FontSize="12" Opacity="0.65" TextColor="White"
+                                    Margin="0,-5,0,0"></Label>
+                        </StackLayout>
+                        <Label Grid.Column="2" Text="+$3,500,00" TextColor="White"
+                                FontFamily="MediumFont" HorizontalOptions="End"
+                                VerticalOptions="Center"></Label>
+                    </Grid>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+       
     </Grid>
 </ContentPage>
 

@@ -16,6 +16,8 @@
                 <Setter Property="HeightRequest" Value="12"></Setter>
                 <Setter Property="WidthRequest" Value="12"></Setter>
                 <Setter Property="StrokeThickness" Value="3"></Setter>
+                <Setter Property="HorizontalOptions" Value="Start"></Setter>
+                <Setter Property="VerticalOptions" Value="Start"></Setter>
             </Style>
         </ResourceDictionary>
     </Application.Resources>
