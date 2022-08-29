@@ -20,10 +20,22 @@
     <None Remove="Model\" />
     <None Remove="View\" />
     <None Remove="ViewModel\" />
+    <None Remove="Fonts\" />
+    <None Remove="Fonts\Roboto-Bold.ttf" />
+    <None Remove="Fonts\Roboto-Light.ttf" />
+    <None Remove="Fonts\Roboto-Medium.ttf" />
+    <None Remove="Fonts\Roboto-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
     <Folder Include="View\" />
     <Folder Include="ViewModel\" />
+    <Folder Include="Fonts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\Roboto-Bold.ttf" />
+    <EmbeddedResource Include="Fonts\Roboto-Light.ttf" />
+    <EmbeddedResource Include="Fonts\Roboto-Medium.ttf" />
+    <EmbeddedResource Include="Fonts\Roboto-Regular.ttf" />
   </ItemGroup>
 </Project>

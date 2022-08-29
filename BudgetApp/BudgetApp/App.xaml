@@ -3,6 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BudgetApp.App">
     <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="PrimaryColor">#341E90</Color>
+            <Color x:Key="SecondaryColor">#3F32C7</Color>
+            <Color x:Key="TertiaryColor">#887DFB</Color>
 
+            <Color x:Key="OffwhiteColor">#F9F9F9</Color>
+            <Color x:Key="OrangeColor">#FFC44B</Color>
+            <Color x:Key="SkyBlueColor">#21C8ED</Color>
+
+            <Style x:Key="DotEllipse" TargetType="Ellipse">
+                <Setter Property="HeightRequest" Value="12"></Setter>
+                <Setter Property="WidthRequest" Value="12"></Setter>
+                <Setter Property="StrokeThickness" Value="3"></Setter>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

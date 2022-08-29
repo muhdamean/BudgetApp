@@ -136,4 +136,15 @@
       <Name>BudgetApp</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon ionic-ios-arrow-forward.png" />
+    <BundleResource Include="Resources\Icon ionic-ios-arrow-forward%402x.png" />
+    <BundleResource Include="Resources\Icon ionic-ios-arrow-forward%403x.png" />
+    <BundleResource Include="Resources\info.png" />
+    <BundleResource Include="Resources\info%402x.png" />
+    <BundleResource Include="Resources\info%403x.png" />
+    <BundleResource Include="Resources\menu.png" />
+    <BundleResource Include="Resources\menu%402x.png" />
+    <BundleResource Include="Resources\menu%403x.png" />
+  </ItemGroup>
 </Project>

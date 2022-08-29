@@ -2,9 +2,36 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="BudgetApp.View.DashboardPage">
-    <ContentPage.Content>
+    xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    x:Class="BudgetApp.View.DashboardPage"
+    NavigationPage.HasNavigationBar="False"
+    BackgroundColor="{DynamicResource PrimaryColor}">
 
-    </ContentPage.Content>
+    <Grid RowDefinitions="Auto, Auto, Auto, *" Padding="25">
+        <Grid ColumnDefinitions="Auto,*">
+            <ImageButton BackgroundColor="Transparent" Source="menu.png"
+                         HeightRequest="18" WidthRequest="18"
+                         VerticalOptions="Center"></ImageButton>
+            <Label Grid.Column="1" Text="DASHBOARD" TextColor="{DynamicResource TertiaryColor}"
+                   VerticalOptions="Center" FontSize="18" FontFamily="NormalFont"></Label>
+        </Grid>
+        <pv:PancakeView Grid.Row="1" CornerRadius="15" BackgroundColor="{DynamicResource SecondaryColor}"
+                        HeightRequest="215" Margin="0,50,0,50" Padding="10">
+            <Grid ColumnDefinitions="*,*" RowDefinitions="*,1.2">
+                <StackLayout Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="Current balance" HorizontalOptions="Center"
+                           FontSize="14" FontFamily="NormalFont" TextColor="White"></Label>
+                    <Label Text="#21,500.00" HorizontalOptions="Center"
+                           FontSize="25" TextColor="White" FontFamily="BoldFont"></Label>
+                </StackLayout>
+                <pv:PancakeView Grid.Row="1" Padding="15" CornerRadius="15"
+                                BackgroundColor="{DynamicResource OffwhiteColor}">
+                    <Ellipse Style="{StaticResource DotEllipse}" Stroke="{DynamicResource SkyBlueColor}"></Ellipse>
+
+                </pv:PancakeView>
+            </Grid>
+
+        </pv:PancakeView>
+    </Grid>
 </ContentPage>
 
