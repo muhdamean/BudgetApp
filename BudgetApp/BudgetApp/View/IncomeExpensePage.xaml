@@ -7,7 +7,7 @@
     NavigationPage.HasNavigationBar="False"
     BackgroundColor="{DynamicResource PrimaryColor}">
 
-      <Grid RowDefinitions="Auto, Auto, Auto,*" Padding="25" RowSpacing="25">
+      <Grid RowDefinitions="Auto, Auto,*" Padding="25" RowSpacing="25">
         <Grid ColumnDefinitions="Auto,*" ColumnSpacing="25">
             <ImageButton BackgroundColor="Transparent" Source="menu.png"
                          HeightRequest="18" WidthRequest="18"
@@ -16,51 +16,36 @@
                    VerticalOptions="Center" FontSize="18" FontFamily="NormalFont"></Label>
         </Grid>
         <pv:PancakeView Grid.Row="1" CornerRadius="15" BackgroundColor="{DynamicResource SecondaryColor}"
-                        HeightRequest="215" Margin="0,50,0,0" Padding="10">
+                        HeightRequest="185" Margin="0,50,0,0" Padding="10">
             <Grid ColumnDefinitions="*,*" RowDefinitions="*,1.2*">
                 <StackLayout Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="Center">
                     <Label Text="Current expenses" HorizontalOptions="Center"
                            FontSize="14" FontFamily="NormalFont" TextColor="White"></Label>
-                    <Label Text="#21,500.00" HorizontalOptions="Center"
+                    <Label Text="$620.11" HorizontalOptions="Center"
                            FontSize="25" TextColor="White" FontFamily="BoldFont"></Label>
                 </StackLayout>
-                <pv:PancakeView Grid.Row="1" Padding="15" CornerRadius="15"
-                                BackgroundColor="{DynamicResource OffwhiteColor}">
-                    <StackLayout Spacing="10">
-                        <Ellipse Style="{StaticResource DotEllipse}" Stroke="{DynamicResource SkyBlueColor}"></Ellipse>
-                        <StackLayout Spacing="5">
-                            <Label Text="$7,500.90" FontSize="20" FontFamily="LightFont" TextColor="#2C2A57"></Label>
-                            <Label Text="Expense this month" TextColor="#2C2A57"
-                               FontSize="12" WidthRequest="70" HorizontalOptions="Start"></Label>
-                        </StackLayout>
+                <pv:PancakeView Grid.Row="1" Padding="15" HeightRequest="55" CornerRadius="15"
+                                BackgroundColor="{DynamicResource OffwhiteColor}"
+                                VerticalOptions="Start">
+                    <StackLayout Spacing="5">
+                        <Label FontSize="10" TextColor="#2C2A57" Text="Start Date"
+                               FontFamily="NormalFont"></Label>
+                        <DatePicker FontSize="16" TextColor="#2C2A57" FontFamily="MediumFont"></DatePicker>
                     </StackLayout>
                 </pv:PancakeView>
-                <pv:PancakeView Grid.Row="1" Grid.Column="1" Padding="15" CornerRadius="15"
-                                BackgroundColor="{DynamicResource OffwhiteColor}">
-                    <StackLayout Spacing="10">
-                        <Ellipse Style="{StaticResource DotEllipse}" Stroke="{DynamicResource OrangeColor}"></Ellipse>
-                        <StackLayout Spacing="5">
-                            <Label Text="$620.11" FontSize="20" FontFamily="LightFont" TextColor="#2C2A57"></Label>
-                            <Label Text="Expenses this month" TextColor="#2C2A57"
-                               FontSize="12" WidthRequest="80" HorizontalOptions="Start"></Label>
-                        </StackLayout>
+                <pv:PancakeView Grid.Row="1" Grid.Column="1" Padding="15" HeightRequest="55" CornerRadius="15"
+                                BackgroundColor="{DynamicResource OffwhiteColor}"
+                                VerticalOptions="Start">
+                    <StackLayout Spacing="5">
+                        <Label FontSize="10" TextColor="#2C2A57" Text="End Date"
+                               FontFamily="NormalFont"></Label>
+                        <DatePicker FontSize="16" TextColor="#2C2A57" FontFamily="MediumFont"></DatePicker>
                     </StackLayout>
                 </pv:PancakeView>
             </Grid>
 
         </pv:PancakeView>
-        <pv:PancakeView Grid.Row="2" Padding="10,5" CornerRadius="10" HeightRequest="40" BackgroundColor="White">
-            <Grid ColumnDefinitions="*,Auto">
-                <StackLayout Orientation="Horizontal" VerticalOptions="Center">
-                    <Image Source="info" WidthRequest="28" HeightRequest="28"></Image>
-                    <Label Text="You're running of budget!" VerticalOptions="Center"></Label>
-                </StackLayout>
-                <Path  Fill="{DynamicResource SecondaryColor}"  Grid.Column="1" VerticalOptions="Center"
-                      Data="M14.331,10.056l-2.922-2.92a.55.55,0,0,1,0-.779.556.556,0,0,1,.782,0L15.5,9.665a.551.551,0,0,1,.016.761l-3.324,3.331a.552.552,0,1,1-.782-.779Z"></Path>
-            </Grid>
-        </pv:PancakeView>
-
-        <CollectionView Grid.Row="3">
+        <CollectionView Grid.Row="2">
             <CollectionView.Header>
                 <Label Text="TRANSACTIONS" FontSize="12" FontFamily="NormalFont"
                        TextColor="{DynamicResource TertiaryColor}"></Label>
@@ -88,7 +73,17 @@
 
         </CollectionView>
 
-       
+       <Grid Grid.Row="2"  VerticalOptions="End" HorizontalOptions="End"
+             BackgroundColor="{DynamicResource TertiaryColor}"
+             HeightRequest="50" WidthRequest="50">
+           <Grid.Clip>
+               <EllipseGeometry RadiusX="25" RadiusY="25" Center="25,25"></EllipseGeometry>
+
+           </Grid.Clip>
+           <Path Data="M29.25,19.5H19.5v9.75h-3V19.5H6.75v-3H16.5V6.75h3V16.5h9.75Z"
+                 HorizontalOptions="Center" VerticalOptions="Center" Fill="white"
+                 Aspect="Uniform"></Path>
+       </Grid>
     </Grid>
 </ContentPage>
 

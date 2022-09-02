@@ -21,7 +21,7 @@
                 <StackLayout Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="Center">
                     <Label Text="Current balance" HorizontalOptions="Center"
                            FontSize="14" FontFamily="NormalFont" TextColor="White"></Label>
-                    <Label Text="#21,500.00" HorizontalOptions="Center"
+                    <Label Text="$21,500.00" HorizontalOptions="Center"
                            FontSize="25" TextColor="White" FontFamily="BoldFont"></Label>
                 </StackLayout>
                 <pv:PancakeView Grid.Row="1" Padding="15" CornerRadius="15"
