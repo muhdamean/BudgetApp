@@ -147,6 +147,21 @@
     <BundleResource Include="Resources\menu.png" />
     <BundleResource Include="Resources\menu%402x.png" />
     <BundleResource Include="Resources\menu%403x.png" />
+    <BundleResource Include="Resources\back.png" />
+    <BundleResource Include="Resources\back%402x.png" />
+    <BundleResource Include="Resources\back%403x.png" />
+    <BundleResource Include="Resources\budget.png" />
+    <BundleResource Include="Resources\budget%402x.png" />
+    <BundleResource Include="Resources\budget%403x.png" />
+    <BundleResource Include="Resources\expenses.png" />
+    <BundleResource Include="Resources\expenses%402x.png" />
+    <BundleResource Include="Resources\expenses%403x.png" />
+    <BundleResource Include="Resources\income.png" />
+    <BundleResource Include="Resources\income%402x.png" />
+    <BundleResource Include="Resources\income%403x.png" />
+    <BundleResource Include="Resources\settings.png" />
+    <BundleResource Include="Resources\settings%402x.png" />
+    <BundleResource Include="Resources\settings%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Renderers\" />

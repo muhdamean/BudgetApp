@@ -9,7 +9,7 @@
 
       <Grid RowDefinitions="Auto, Auto,*" Padding="25" RowSpacing="25">
         <Grid ColumnDefinitions="Auto,*" ColumnSpacing="25">
-            <ImageButton BackgroundColor="Transparent" Source="menu.png"
+            <ImageButton BackgroundColor="Transparent" Source="back.png"
                          HeightRequest="18" WidthRequest="18"
                          VerticalOptions="Center"></ImageButton>
             <Label Grid.Column="1" Text="EXPENSE" TextColor="{DynamicResource TertiaryColor}"
