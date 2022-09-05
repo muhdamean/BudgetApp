@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:Skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+    x:Class="BudgetApp.Controls.PercentView">
+
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Skia:SKCanvasView x:Name="canvasView" PaintSurface="CanvasView_PaintSurface"></Skia:SKCanvasView>
+        <Label x:Name="animText" Text="0" FontSize="15" HorizontalOptions="Center"
+               VerticalOptions="Center"></Label>
+    </Grid>
+</ContentView>
+

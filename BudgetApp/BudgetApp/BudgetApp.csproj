@@ -14,6 +14,7 @@
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
     <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="2.88.1" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Xamarin.Forms.PancakeView" />
@@ -25,12 +26,15 @@
     <None Remove="Fonts\Roboto-Light.ttf" />
     <None Remove="Fonts\Roboto-Medium.ttf" />
     <None Remove="Fonts\Roboto-Regular.ttf" />
+    <None Remove="SkiaSharp.Views.Forms" />
+    <None Remove="Controls\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
     <Folder Include="View\" />
     <Folder Include="ViewModel\" />
     <Folder Include="Fonts\" />
+    <Folder Include="Controls\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Fonts\Roboto-Bold.ttf" />
