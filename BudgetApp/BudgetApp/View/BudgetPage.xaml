@@ -5,6 +5,7 @@
     xmlns:c="clr-namespace:BudgetApp.Controls"
     xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     x:Class="BudgetApp.View.BudgetPage"
+    NavigationPage.HasNavigationBar="False"
     BackgroundColor="{DynamicResource PrimaryColor}">
 
     <Grid RowDefinitions="Auto, Auto, *, Auto" RowSpacing="25" Margin="20,15"> 
