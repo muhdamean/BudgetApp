@@ -16,7 +16,7 @@
                    VerticalOptions="Center" FontSize="18" FontFamily="NormalFont"></Label>
         </Grid>
         <pv:PancakeView Grid.Row="1" CornerRadius="15" BackgroundColor="{DynamicResource SecondaryColor}"
-                        HeightRequest="185" Margin="0,50,0,0" Padding="10">
+                        HeightRequest="185" Margin="0,25,0,0" Padding="10">
             <Grid ColumnDefinitions="*,*" RowDefinitions="*,1.2*">
                 <StackLayout Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="Center">
                     <Label Text="Current expenses" HorizontalOptions="Center"

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    x:Class="BudgetApp.View.NewIncomeExpensePage"
+    BackgroundColor="{DynamicResource PrimaryColor}">
+
+    <Grid RowDefinitions="Auto, *" Padding="25" RowSpacing="25">
+        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="15">
+            <ImageButton BackgroundColor="Transparent" Source="back.png"
+                         HeightRequest="18" WidthRequest="18"
+                         VerticalOptions="Center"></ImageButton>
+            <Label Grid.Column="1" Text="ADD NEW" TextColor="{DynamicResource TertiaryColor}"
+                   VerticalOptions="Center" FontSize="18" FontFamily="NormalFont"></Label>
+        </Grid>
+        <ScrollView Grid.Row="1">
+            <StackLayout  Spacing="0"> 
+                <pv:PancakeView CornerRadius="15" BackgroundColor="White"
+                         Margin="0,25,0,0" Padding="20">
+                    <Grid RowDefinitions="Auto,Auto" RowSpacing="50">
+                        <pv:PancakeView HeightRequest="40" CornerRadius="20">
+                            <pv:PancakeView.Border>
+                                <pv:Border Color="{DynamicResource SecondaryColor}" Thickness="1" />
+                            </pv:PancakeView.Border>
+                            <Grid ColumnDefinitions="*,*" ColumnSpacing="0">
+                                <pv:PancakeView HeightRequest="40" CornerRadius="20" BackgroundColor="{DynamicResource SecondaryColor}">
+                                    <pv:PancakeView.Border>
+                                        <pv:Border Thickness="1" />
+                                    </pv:PancakeView.Border>
+                                    <Label Text="Income" TextColor="White" HorizontalOptions="Center"
+                                           VerticalOptions="Center" FontFamily="NormalFont" FontSize="14"></Label>
+                                </pv:PancakeView>
+                                <pv:PancakeView Grid.Column="1" HeightRequest="40" CornerRadius="20" >
+                                    <pv:PancakeView.Border>
+                                        <pv:Border Thickness="1" />
+                                    </pv:PancakeView.Border>
+                                    <Label Text="Expense" TextColor="#2C2A57" HorizontalOptions="Center"
+                                           VerticalOptions="Center" FontFamily="NormalFont" FontSize="14"></Label>
+                                </pv:PancakeView>
+                            </Grid>
+                        </pv:PancakeView>
+                        <StackLayout Grid.Row="1" Margin="0,0,0,60">
+                            <StackLayout>
+                                <Label Text="Title" FontSize="14" TextColor="#707070" FontFamily="NormalFont"></Label>
+                                <Frame Style="{StaticResource EntryFrame}">
+                                    <Entry TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont"></Entry>
+                                </Frame>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label Text="Amount" FontSize="14" TextColor="#707070" FontFamily="NormalFont"></Label>
+                                <Frame Style="{StaticResource EntryFrame}">
+                                    <Entry TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont"></Entry>
+                                </Frame>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label Text="Date" FontSize="14" TextColor="#707070" FontFamily="NormalFont"></Label>
+                                <Frame Style="{StaticResource EntryFrame}">
+                                    <DatePicker TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont"></DatePicker>
+                                </Frame>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label Text="Description" FontSize="14" TextColor="#707070" FontFamily="NormalFont"></Label>
+                                <Frame Style="{StaticResource EntryFrame}">
+                                    <Entry TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont"></Entry>
+                                </Frame>
+                            </StackLayout>
+                        </StackLayout>
+                    </Grid>
+                </pv:PancakeView>
+                <Button Text="Save" TextColor="White" FontSize="14"
+                        FontFamily="NormalFont" WidthRequest="140" HeightRequest="40"
+                        CornerRadius="20" HorizontalOptions="Center"
+                        BackgroundColor="{DynamicResource SecondaryColor}" Margin="0,-20,0,0"></Button>
+            </StackLayout>
+
+        </ScrollView>
+    </Grid>
+</ContentPage>
+

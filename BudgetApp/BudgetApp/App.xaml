@@ -19,6 +19,15 @@
                 <Setter Property="HorizontalOptions" Value="Start"></Setter>
                 <Setter Property="VerticalOptions" Value="Start"></Setter>
             </Style>
+
+            <Style x:Key="EntryFrame" TargetType="Frame">
+                <Setter Property="HasShadow" Value="False"></Setter>
+                <Setter Property="CornerRadius" Value="6"></Setter>
+                <Setter Property="HeightRequest" Value="40"></Setter>
+                <Setter Property="Padding" Value="15,0"></Setter>
+                <Setter Property="BackgroundColor" Value="White"></Setter>
+                <Setter Property="BorderColor" Value="{DynamicResource SecondaryColor}"></Setter>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
