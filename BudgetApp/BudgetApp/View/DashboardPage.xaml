@@ -61,7 +61,7 @@
                 <Grid ColumnDefinitions="*,Auto">
                     <StackLayout Orientation="Horizontal" VerticalOptions="Center">
                         <Image Source="info" WidthRequest="28" HeightRequest="28"></Image>
-                        <Label Text="You're running of budget!" VerticalOptions="Center"></Label>
+                        <Label Text="You're running out of budget!" VerticalOptions="Center"></Label>
                     </StackLayout>
                     <Path  Fill="{DynamicResource SecondaryColor}"  Grid.Column="1" VerticalOptions="Center"
                           Data="M14.331,10.056l-2.922-2.92a.55.55,0,0,1,0-.779.556.556,0,0,1,.782,0L15.5,9.665a.551.551,0,0,1,.016.761l-3.324,3.331a.552.552,0,1,1-.782-.779Z"></Path>
