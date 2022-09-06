@@ -12,7 +12,7 @@ namespace BudgetApp.Controls
             InitializeComponent();
         }
 
-        SKPath path=new SKPath()
+        SKPath path = new SKPath();
 
         #region Bindable Properties
 
@@ -183,7 +183,7 @@ namespace BudgetApp.Controls
             canvas.DrawOval(rect, outlinePaint);
 
             //Draw Progress Arc
-            var arc = (float)(Value / 100) * 360;
+            var arc =Math.Min((float)(Value / 100) * 360, 359.9f);
             path.ArcTo(rect, -90, arc, true);
             canvas.DrawPath(path, strokePaint);
 

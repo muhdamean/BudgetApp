@@ -2,9 +2,78 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="BudgetApp.View.BudgetPage">
-    <ContentPage.Content>
+    xmlns:c="clr-namespace:BudgetApp.Controls" xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    x:Class="BudgetApp.View.BudgetPage"
+    BackgroundColor="{DynamicResource PrimaryColor}">
 
-    </ContentPage.Content>
+    <Grid RowDefinitions="Auto, Auto, *, Auto" RowSpacing="25"> 
+        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="25">
+            <ImageButton BackgroundColor="Transparent" Source="back.png"
+                         HeightRequest="18" WidthRequest="18"
+                         VerticalOptions="Center"></ImageButton>
+            <Label Grid.Column="1" Text="BUDGET" TextColor="{DynamicResource TertiaryColor}"
+                   VerticalOptions="Center" FontSize="18" FontFamily="NormalFont"></Label>
+        </Grid>
+
+        <pv:PancakeView Grid.Row="1" CornerRadius="15" BackgroundColor="{DynamicResource SecondaryColor}"
+                        HeightRequest="95" Margin="0,25,0,0" Padding="10">
+            <Grid ColumnDefinitions="*,Auto" Padding="30,0">
+                <StackLayout HorizontalOptions="Start" VerticalOptions="Center">
+                    <Label Text="Current expenses" HorizontalOptions="Center"
+                            FontSize="14" FontFamily="NormalFont" TextColor="White"></Label>
+                    <Label Text="$620.11" HorizontalOptions="Center"
+                            FontSize="25" TextColor="White" FontFamily="BoldFont"></Label>
+                </StackLayout>
+                <Grid Grid.Column="1" HeightRequest="55" WidthRequest="55"
+                      HorizontalOptions="Center" VerticalOptions="Center">
+                    <Ellipse Fill="{DynamicResource TertiaryColor}"></Ellipse>
+                    <Label Text="JULY 2022" HorizontalTextAlignment="Center"
+                           VerticalOptions="Center" TextColor="White"></Label>
+                </Grid>
+            </Grid>
+        </pv:PancakeView>
+        <pv:PancakeView Grid.Row="2" CornerRadius="15" BackgroundColor="White"
+                        Padding="20">
+            <CollectionView Grid.Row="2">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                         <StackLayout Spacing="12">
+                            <Grid  ColumnDefinitions="*,2*,3*"  VerticalOptions="Start" ColumnSpacing="12">
+                               <c:PercentView Value="52" WidthRequest="50"
+                                       HeightRequest="50" FontSize="12" FontFamily="MediumFont"
+                                       TextColor="#2C2A57" Color="Orange"
+                                       VerticalOptions="Center" 
+                                       >
+                               </c:PercentView>
+                                <StackLayout Grid.Column="1" VerticalOptions="Center">
+                                    <Label Text="UI/UX design" FontFamily="normal " FontSize="14" TextColor="#2C2A57"></Label>
+                                    <Label Text="Tuesday, June 20, 2020" FontFamily="NormalFont"
+                                            FontSize="12" Opacity="0.65" TextColor="#2C2A57"
+                                            Margin="0,-5,0,0"></Label>
+                                </StackLayout>
+                                <Label Grid.Column="2" Text="+$3,500,00" TextColor="#2C2A57"
+                                        FontFamily="MediumFont" HorizontalOptions="End"
+                                        VerticalOptions="Center"></Label>
+                            </Grid>
+                           <BoxView BackgroundColor="{DynamicResource TertiaryColor}" Opacity="0.2" HeightRequest="1"
+                                    HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
+                           </BoxView>
+                       </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </pv:PancakeView>
+        <Grid Grid.Row="3"  VerticalOptions="Center" HorizontalOptions="Center"
+             BackgroundColor="{DynamicResource SecondaryColor}"
+             HeightRequest="50" WidthRequest="50" Margin="0,-50,0,0">
+           <Grid.Clip>
+               <EllipseGeometry RadiusX="25" RadiusY="25" Center="25,25"></EllipseGeometry>
+
+           </Grid.Clip>
+           <Path Data="M29.25,19.5H19.5v9.75h-3V19.5H6.75v-3H16.5V6.75h3V16.5h9.75Z"
+                 HorizontalOptions="Center" VerticalOptions="Center" Fill="white"
+                 Aspect="Uniform"></Path>
+       </Grid>
+    </Grid>
 </ContentPage>
 
