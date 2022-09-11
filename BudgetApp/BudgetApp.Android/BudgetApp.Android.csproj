@@ -59,7 +59,10 @@
       <Version>2.3.0.759</Version>
     </PackageReference>
     <PackageReference Include="SkiaSharp.Views.Forms">
-      <Version>2.88.1</Version>
+      <Version>2.88.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite">
+      <Version>3.1.28</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
