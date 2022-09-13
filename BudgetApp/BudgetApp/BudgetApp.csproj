@@ -31,6 +31,7 @@
     <None Remove="Controls\" />
     <None Remove="Microsoft.EntityFrameworkCore.Sqlite" />
     <None Remove="Data\" />
+    <None Remove="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />

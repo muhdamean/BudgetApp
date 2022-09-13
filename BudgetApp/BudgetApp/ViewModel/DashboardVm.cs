@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using BudgetApp.Model;
+using BudgetApp.View;
 
 namespace BudgetApp.ViewModel
 {
@@ -23,9 +24,9 @@ namespace BudgetApp.ViewModel
         {
             return new ObservableCollection<Menu>
             {
-                new Menu{ Icon="income.png", Name="Income" },
-                new Menu{ Icon="expenses.png", Name="Expense" },
-                new Menu{ Icon="budget.png", Name="Budgets" },
+                new Menu{ Icon="income.png", Name="Income", TargetType=typeof(IncomeExpensePage) },
+                new Menu{ Icon="expenses.png", Name="Expense", TargetType=typeof(IncomeExpensePage) },
+                new Menu{ Icon="budget.png", Name="Budgets", TargetType=typeof(BudgetPage) },
                 new Menu{ Icon="settings.png", Name="Settings" }
             };
         }

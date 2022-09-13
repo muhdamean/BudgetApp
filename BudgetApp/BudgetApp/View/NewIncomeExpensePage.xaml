@@ -25,18 +25,52 @@
                                 <pv:Border Color="{DynamicResource SecondaryColor}" Thickness="1" />
                             </pv:PancakeView.Border>
                             <Grid ColumnDefinitions="*,*" ColumnSpacing="0">
-                                <pv:PancakeView HeightRequest="40" CornerRadius="20" BackgroundColor="{DynamicResource SecondaryColor}">
+                                <pv:PancakeView x:Name="IncomeTab" HeightRequest="40" CornerRadius="20">
                                     <pv:PancakeView.Border>
                                         <pv:Border Thickness="1" />
                                     </pv:PancakeView.Border>
-                                    <Label Text="Income" TextColor="White" HorizontalOptions="Center"
+                                    <pv:PancakeView.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="IncomeSelected"></TapGestureRecognizer>
+                                    </pv:PancakeView.GestureRecognizers>
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="TabStates">
+                                            <VisualState x:Name="Normal">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundColor" Value="{x:Null}"></Setter>
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                            <VisualState x:Name="Selected">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundColor" Value="{DynamicResource SecondaryColor}"></Setter>
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                    <Label x:Name="IncomeTabTxt" Text="Income" TextColor="#2C2A57" HorizontalOptions="Center"
                                            VerticalOptions="Center" FontFamily="NormalFont" FontSize="14"></Label>
                                 </pv:PancakeView>
-                                <pv:PancakeView Grid.Column="1" HeightRequest="40" CornerRadius="20" >
+                                <pv:PancakeView x:Name="ExpenseTab" Grid.Column="1" HeightRequest="40" CornerRadius="20" >
                                     <pv:PancakeView.Border>
                                         <pv:Border Thickness="1" />
                                     </pv:PancakeView.Border>
-                                    <Label Text="Expense" TextColor="#2C2A57" HorizontalOptions="Center"
+                                    <pv:PancakeView.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="ExpenseSelected"></TapGestureRecognizer>
+                                    </pv:PancakeView.GestureRecognizers>
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="TabStates">
+                                            <VisualState x:Name="Normal">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundColor" Value="{x:Null}"></Setter>
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                            <VisualState x:Name="Selected">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundColor" Value="{DynamicResource SecondaryColor}"></Setter>
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                    <Label x:Name="ExpenseTabTxt" Text="Expense" TextColor="#2C2A57" HorizontalOptions="Center"
                                            VerticalOptions="Center" FontFamily="NormalFont" FontSize="14"></Label>
                                 </pv:PancakeView>
                             </Grid>
@@ -58,6 +92,13 @@
                                 <Label Text="Date" FontSize="14" TextColor="#707070" FontFamily="NormalFont"></Label>
                                 <Frame Style="{StaticResource EntryFrame}">
                                     <DatePicker TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont"></DatePicker>
+                                </Frame>
+                            </StackLayout>
+                            <StackLayout x:Name="CategoryView">
+                                <Label Text="Category" FontSize="14" TextColor="#707070" FontFamily="NormalFont"></Label>
+                                <Frame Style="{StaticResource EntryFrame}">
+                                    <Picker TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont">
+                                    </Picker>
                                 </Frame>
                             </StackLayout>
                             <StackLayout>

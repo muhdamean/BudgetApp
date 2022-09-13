@@ -17,7 +17,7 @@ namespace BudgetApp.iOS.Renderers
             if (Control != null)
             {
                 Control.Background = null;
-                Control.Background = UITextBorderStyle.None;
+                Control.BorderStyle = UITextBorderStyle.None;
             }
         }
     }

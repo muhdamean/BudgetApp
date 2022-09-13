@@ -38,11 +38,11 @@
                                     <Label Text="Duration" FontSize="14" TextColor="#707070" FontFamily="NormalFont"></Label>
                                     <Frame Style="{StaticResource EntryFrame}">
                                         <Picker TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont">
-                                            <Picker.ItemsSource>
-                                                <x:Array Type="{x:Type x:String}">
-                                                    <x:String.One Time:string></x:String.One>
-                                                </x:Array>
-                                            </Picker.ItemsSource>
+                                            <Picker.Items>
+                                                <x:String>One Time</x:String>
+                                                <x:String>Monthly</x:String>
+                                                <x:String>Yearly</x:String>
+                                            </Picker.Items>
                                         </Picker>
                                     </Frame>
                                 </StackLayout>

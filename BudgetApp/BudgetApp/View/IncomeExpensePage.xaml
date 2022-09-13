@@ -12,7 +12,7 @@
             <ImageButton BackgroundColor="Transparent" Source="back.png"
                          HeightRequest="18" WidthRequest="18"
                          VerticalOptions="Center"></ImageButton>
-            <Label Grid.Column="1" Text="EXPENSE" TextColor="{DynamicResource TertiaryColor}"
+            <Label Grid.Column="1" x:Name="Titletxt" TextColor="{DynamicResource TertiaryColor}"
                    VerticalOptions="Center" FontSize="18" FontFamily="NormalFont"></Label>
         </Grid>
         <pv:PancakeView Grid.Row="1" CornerRadius="15" BackgroundColor="{DynamicResource SecondaryColor}"
@@ -76,6 +76,10 @@
        <Grid Grid.Row="2"  VerticalOptions="End" HorizontalOptions="End"
              BackgroundColor="{DynamicResource TertiaryColor}"
              HeightRequest="50" WidthRequest="50">
+            <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="AddTapped"></TapGestureRecognizer>
+
+                </Grid.GestureRecognizers>
            <Grid.Clip>
                <EllipseGeometry RadiusX="25" RadiusY="25" Center="25,25"></EllipseGeometry>
 

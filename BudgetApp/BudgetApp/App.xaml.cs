@@ -14,8 +14,8 @@ namespace BudgetApp
         public App ()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new NewBudgetPage());
+            //Device.SetFlags(new[] { "Shapes_Experimental" });
+            MainPage = new NavigationPage(new DashboardPage());
         }
 
         protected override void OnStart ()

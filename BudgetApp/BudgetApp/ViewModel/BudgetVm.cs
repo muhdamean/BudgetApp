@@ -1,7 +1,7 @@
 ﻿using System;
 namespace BudgetApp.ViewModel
 {
-    public class BudgetVm
+    public class BudgetVm : BaseVm
     {
         public BudgetVm()
         {

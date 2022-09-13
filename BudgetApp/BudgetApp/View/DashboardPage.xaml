@@ -95,6 +95,21 @@
                 </CollectionView.ItemTemplate>
 
             </CollectionView>
+            <Grid Grid.Row="3"  VerticalOptions="End" HorizontalOptions="End"
+                 BackgroundColor="{DynamicResource TertiaryColor}"
+                 HeightRequest="50" WidthRequest="50">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="AddTapped"></TapGestureRecognizer>
+
+                </Grid.GestureRecognizers>
+               <Grid.Clip>
+                   <EllipseGeometry RadiusX="25" RadiusY="25" Center="25,25"></EllipseGeometry>
+
+               </Grid.Clip>
+               <Path Data="M29.25,19.5H19.5v9.75h-3V19.5H6.75v-3H16.5V6.75h3V16.5h9.75Z"
+                     HorizontalOptions="Center" VerticalOptions="Center" Fill="white"
+                     Aspect="Uniform"></Path>
+           </Grid>
         </Grid>
 
         <Grid x:Name="MenuGrid" IsVisible="False">
@@ -112,6 +127,9 @@
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
                              <StackLayout Orientation="Horizontal" Spacing="20">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="MenuItemTapped"></TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
                                  <Grid Grid.Row="2"  VerticalOptions="Start" HorizontalOptions="Start"
                                          BackgroundColor="{DynamicResource TertiaryColor}"
                                          HeightRequest="46" WidthRequest="46">
