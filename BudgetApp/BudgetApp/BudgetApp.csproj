@@ -16,6 +16,7 @@
     <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="2.88.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.28" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.1.0" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Xamarin.Forms.PancakeView" />
@@ -32,6 +33,8 @@
     <None Remove="Microsoft.EntityFrameworkCore.Sqlite" />
     <None Remove="Data\" />
     <None Remove="System.Numerics.Vectors" />
+    <None Remove="Rg.Plugins.Popup" />
+    <None Remove="View\Popup\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
@@ -40,11 +43,17 @@
     <Folder Include="Fonts\" />
     <Folder Include="Controls\" />
     <Folder Include="Data\" />
+    <Folder Include="View\Popup\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Fonts\Roboto-Bold.ttf" />
     <EmbeddedResource Include="Fonts\Roboto-Light.ttf" />
     <EmbeddedResource Include="Fonts\Roboto-Medium.ttf" />
     <EmbeddedResource Include="Fonts\Roboto-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="View\Popup\MessageDialog.xaml.cs">
+      <DependentUpon>MessageDialog.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>
