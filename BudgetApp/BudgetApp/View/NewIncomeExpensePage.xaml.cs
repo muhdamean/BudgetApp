@@ -15,14 +15,13 @@ namespace BudgetApp.View
         public NewIncomeExpensePage(TransactionType type)
         {
             InitializeComponent();
-            this.type = type;
+            vm.TransactionType = type;
 
-            if (type == TransactionType.Income)
+            if (vm.TransactionType == TransactionType.Income)
                 IncomeSelected(this, new EventArgs());
             else
                 ExpenseSelected(this, new EventArgs());
         }
-        private TransactionType type;
 
         void IncomeSelected(System.Object sender, System.EventArgs e)
         {
@@ -31,7 +30,8 @@ namespace BudgetApp.View
 
             ExpenseTabTxt.TextColor = Color.FromHex("#2C2A57");
             IncomeTabTxt.TextColor = Color.White;
-
+            vm.TransactionType = TransactionType.Income;
+            TitleTxt.Text = "NEW INCOME";
             CategoryView.IsVisible = false;
         }
 
@@ -42,7 +42,8 @@ namespace BudgetApp.View
 
             IncomeTabTxt.TextColor = Color.FromHex("#2C2A57");
             ExpenseTabTxt.TextColor = Color.White;
-
+            vm.TransactionType = TransactionType.Expense;
+            TitleTxt.Text = "NEW EXPENSE";
             CategoryView.IsVisible = true;
         }
     }

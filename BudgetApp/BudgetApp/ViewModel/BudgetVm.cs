@@ -35,17 +35,25 @@ namespace BudgetApp.ViewModel
                 OnPropertyChanged(nameof(TotalBudget));
             }
         }
-        
+
+        public ICommand BackCommand => new Command(() =>
+        {
+            App.Current.MainPage.Navigation.PopAsync();
+        });
+
         public ICommand AddCommand => new Command(() =>
         {
             App.Current.MainPage.Navigation.PushAsync(new NewBudgetPage());
         });
 
-        private async void GetBudgets()
+        private void GetBudgets()
         {
-            var budgets= await service.GetBudgetsAsync();
-            Budgets= budgets.Where(x=>x.DateCreated.Month==DateTime.Now.Month |
-            x.Duration==Duration.Monthly).ToList();
+            //var budgets= await service.GetBudgetsAsync();
+            //Budgets= budgets.Where(x=>x.DateCreated.Month==DateTime.Now.Month |
+            //x.Duration==Duration.Monthly).ToList();
+
+            Budgets = service.QueryBudgets(x => x.DateCreated.Month == DateTime.Now.Month |
+            x.Duration == Duration.Monthly).ToList();
         }
     }
 }

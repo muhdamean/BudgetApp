@@ -17,7 +17,7 @@
         <Grid ColumnDefinitions="Auto,*" ColumnSpacing="25">
             <ImageButton BackgroundColor="Transparent" Source="back.png"
                          HeightRequest="18" WidthRequest="18"
-                         VerticalOptions="Center"></ImageButton>
+                         VerticalOptions="Center" Command="{Binding BackCommand}"></ImageButton>
             <Label Grid.Column="1" Text="BUDGET" TextColor="{DynamicResource TertiaryColor}"
                    VerticalOptions="Center" FontSize="18" FontFamily="NormalFont"></Label>
         </Grid>

@@ -83,32 +83,34 @@
                             <StackLayout>
                                 <Label Text="Title" FontSize="14" TextColor="#707070" FontFamily="NormalFont"></Label>
                                 <Frame Style="{StaticResource EntryFrame}">
-                                    <Entry TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont"></Entry>
+                                    <Entry Text="{Binding Title}" TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont"></Entry>
                                 </Frame>
                             </StackLayout>
                             <StackLayout>
                                 <Label Text="Amount" FontSize="14" TextColor="#707070" FontFamily="NormalFont"></Label>
                                 <Frame Style="{StaticResource EntryFrame}">
-                                    <Entry TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont"></Entry>
+                                    <Entry Text="{Binding Amount}" TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont"></Entry>
                                 </Frame>
                             </StackLayout>
                             <StackLayout>
                                 <Label Text="Date" FontSize="14" TextColor="#707070" FontFamily="NormalFont"></Label>
                                 <Frame Style="{StaticResource EntryFrame}">
-                                    <DatePicker TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont"></DatePicker>
+                                    <DatePicker Date="{Binding TransactionDate}" TextColor="#2C2A57" FontSize="14"
+                                                FontFamily="NormalFont"></DatePicker>
                                 </Frame>
                             </StackLayout>
                             <StackLayout x:Name="CategoryView">
                                 <Label Text="Category" FontSize="14" TextColor="#707070" FontFamily="NormalFont"></Label>
                                 <Frame Style="{StaticResource EntryFrame}">
-                                    <Picker TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont">
+                                    <Picker TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont"
+                                            ItemsSource="{Binding Category.Title}" SelectedIndex="{Binding CategoryIndex}">
                                     </Picker>
                                 </Frame>
                             </StackLayout>
                             <StackLayout>
                                 <Label Text="Description" FontSize="14" TextColor="#707070" FontFamily="NormalFont"></Label>
                                 <Frame Style="{StaticResource EntryFrame}">
-                                    <Entry TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont"></Entry>
+                                    <Entry Text="{Binding Description}" TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont"></Entry>
                                 </Frame>
                             </StackLayout>
                         </StackLayout>
@@ -117,7 +119,8 @@
                 <Button Text="Save" TextColor="White" FontSize="14"
                         FontFamily="NormalFont" WidthRequest="140" HeightRequest="40"
                         CornerRadius="20" HorizontalOptions="Center"
-                        BackgroundColor="{DynamicResource SecondaryColor}" Margin="0,-20,0,0"></Button>
+                        BackgroundColor="{DynamicResource SecondaryColor}" Margin="0,-20,0,0"
+                        Command="{Binding SaveCommand}"></Button>
             </StackLayout>
 
         </ScrollView>
