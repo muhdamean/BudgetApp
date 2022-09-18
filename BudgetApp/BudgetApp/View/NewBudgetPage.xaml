@@ -2,10 +2,13 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:vm="clr-namespace:BudgetApp.ViewModel"
     x:Class="BudgetApp.View.NewBudgetPage"
     NavigationPage.HasNavigationBar="False"
     BackgroundColor="{DynamicResource PrimaryColor}">
+    <ContentPage.BindingContext>
+        <vm:NewBudgetVm x:Name="vm" />
+    </ContentPage.BindingContext>
 
     <Grid RowDefinitions="Auto, *" Padding="25" RowSpacing="25">
         <Grid ColumnDefinitions="Auto,*" ColumnSpacing="15">
@@ -25,19 +28,19 @@
                                 <StackLayout>
                                     <Label Text="Name" FontSize="14" TextColor="#707070" FontFamily="NormalFont"></Label>
                                     <Frame Style="{StaticResource EntryFrame}">
-                                        <Entry TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont"></Entry>
+                                        <Entry Text="{Binding BudgetName}" TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont"></Entry>
                                     </Frame>
                                 </StackLayout>
                                 <StackLayout>
                                     <Label Text="Amount" FontSize="14" TextColor="#707070" FontFamily="NormalFont"></Label>
                                     <Frame Style="{StaticResource EntryFrame}">
-                                        <Entry TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont"></Entry>
+                                        <Entry Text="{Binding Amount}" TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont"></Entry>
                                     </Frame>
                                 </StackLayout>
                                 <StackLayout>
                                     <Label Text="Duration" FontSize="14" TextColor="#707070" FontFamily="NormalFont"></Label>
                                     <Frame Style="{StaticResource EntryFrame}">
-                                        <Picker TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont">
+                                        <Picker SelectedIndex="{Binding Duration}" TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont">
                                             <Picker.Items>
                                                 <x:String>One Time</x:String>
                                                 <x:String>Monthly</x:String>
@@ -49,7 +52,7 @@
                                 <StackLayout>
                                     <Label Text="Description" FontSize="14" TextColor="#707070" FontFamily="NormalFont"></Label>
                                     <Frame Style="{StaticResource EntryFrame}">
-                                        <Entry TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont"></Entry>
+                                        <Entry Text="{Binding Description}" TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont"></Entry>
                                     </Frame>
                                 </StackLayout>
                             </StackLayout>
@@ -59,7 +62,8 @@
                 <Button Text="Save" TextColor="White" FontSize="14"
                         FontFamily="NormalFont" WidthRequest="140" HeightRequest="40"
                         CornerRadius="20" HorizontalOptions="Center"
-                        BackgroundColor="{DynamicResource SecondaryColor}" Margin="0,-20,0,0"></Button>
+                        BackgroundColor="{DynamicResource SecondaryColor}" Margin="0,-20,0,0"
+                        Command="{Binding SaveCommand}"></Button>
             </StackLayout>
 
         </ScrollView>

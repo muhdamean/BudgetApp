@@ -30,7 +30,7 @@
                            HasBackgroundAnimation="True"/>
     </rg:PopupPage.Animation>
 
-    <Frame Padding="30" BackgroundColor="White" WidthRequest="260"
+    <Frame Padding="30" BackgroundColor="White" WidthRequest="260" CornerRadius="15"
            HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
         <Grid RowDefinitions="Auto,Auto" RowSpacing="40">
             <StackLayout HorizontalOptions="Center" Spacing="15">
@@ -39,12 +39,12 @@
                 <Label x:Name="MessageTxt" FontSize="14" TextColor="#363636"
                        FontFamily="NormalFont" HorizontalTextAlignment="Center"></Label>
             </StackLayout>
-            <StackLayout Spacing="5">
+            <StackLayout Grid.Row="1" Spacing="5">
                 <Button x:Name="OkBtn" Text="Ok" TextColor="White" FontSize="14" WidthRequest="145"
                         FontFamily="NormalFont" BackgroundColor="{DynamicResource SecondaryColor}"
                         CornerRadius="20" HeightRequest="40"></Button>
                  <Button x:Name="CancelBtn" Text="Cancel" TextColor="White" FontSize="14" WidthRequest="145"
-                        FontFamily="NormalFont" BackgroundColor="{DynamicResource SecondaryColor}"
+                        FontFamily="NormalFont" BackgroundColor="{DynamicResource TertiaryColor}"
                         CornerRadius="20" HeightRequest="40"></Button>
             </StackLayout>
         </Grid>

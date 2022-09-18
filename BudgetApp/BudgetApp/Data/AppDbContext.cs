@@ -10,6 +10,7 @@ namespace BudgetApp.Data
     {
         public AppDbContext()
         {
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 

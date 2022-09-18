@@ -29,7 +29,7 @@ namespace BudgetApp.Data
                 var result =await context.Transactions.AddAsync(transaction);
                 await context.SaveChangesAsync();
 
-                return result.State == EntityState.Added;
+                return true;// result.State == EntityState.Added;
             }
             catch (Exception)
             {
@@ -44,7 +44,7 @@ namespace BudgetApp.Data
                 var result = context.Transactions.Update(transaction);
                 await context.SaveChangesAsync();
 
-                return result.State == EntityState.Modified;
+                return true;// result.State == EntityState.Modified;
             }
             catch (Exception)
             {
@@ -59,7 +59,7 @@ namespace BudgetApp.Data
                 var result = context.Transactions.Remove(transaction);
                 await context.SaveChangesAsync();
 
-                return result.State == EntityState.Deleted;
+                return true;// result.State == EntityState.Deleted;
             }
             catch (Exception)
             {
@@ -114,7 +114,7 @@ namespace BudgetApp.Data
                 var result = await context.Budgets.AddAsync(budget);
                 await context.SaveChangesAsync();
 
-                return result.State == EntityState.Added;
+                return true;// result.State == EntityState.Added;
             }
             catch (Exception)
             {
@@ -129,7 +129,7 @@ namespace BudgetApp.Data
                 var result = context.Budgets.Update(budget);
                 await context.SaveChangesAsync();
 
-                return result.State == EntityState.Modified;
+                return true;// result.State == EntityState.Modified;
             }
             catch (Exception)
             {
@@ -144,7 +144,7 @@ namespace BudgetApp.Data
                 var result = context.Budgets.Remove(budget);
                 await context.SaveChangesAsync();
 
-                return result.State == EntityState.Deleted;
+                return true;// result.State == EntityState.Deleted;
             }
             catch (Exception)
             {

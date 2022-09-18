@@ -3,16 +3,20 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:vm="clr-namespace:BudgetApp.ViewModel"
     x:Class="BudgetApp.View.NewIncomeExpensePage"
     NavigationPage.HasNavigationBar="False"
     BackgroundColor="{DynamicResource PrimaryColor}">
+    <ContentPage.BindingContext>
+        <vm:NewIncomeExpenseVm x:Name="vm"/>
+    </ContentPage.BindingContext>
 
     <Grid RowDefinitions="Auto, *" Padding="25" RowSpacing="25">
         <Grid ColumnDefinitions="Auto,*" ColumnSpacing="15">
             <ImageButton BackgroundColor="Transparent" Source="back.png"
                          HeightRequest="18" WidthRequest="18"
                          VerticalOptions="Center"></ImageButton>
-            <Label Grid.Column="1" Text="ADD NEW" TextColor="{DynamicResource TertiaryColor}"
+            <Label Grid.Column="1" x:Name="TitleTxt" Text="ADD NEW" TextColor="{DynamicResource TertiaryColor}"
                    VerticalOptions="Center" FontSize="18" FontFamily="NormalFont"></Label>
         </Grid>
         <ScrollView Grid.Row="1">
