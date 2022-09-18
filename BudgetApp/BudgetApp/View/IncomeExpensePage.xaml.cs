@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using BudgetApp.Model;
+using BudgetApp.ViewModel;
 using Xamarin.Forms;
 
 namespace BudgetApp.View
@@ -10,20 +11,24 @@ namespace BudgetApp.View
         public IncomeExpensePage(TransactionType transactionType)
         {
             InitializeComponent();
-            this.transactionType = transactionType;
-            Init(this.transactionType);
+            Init(transactionType);
         }
 
-        private TransactionType transactionType;
+        private IncomeExpenseVm vm;
 
-        private void Init(TransactionType type)
+        private void Init(TransactionType transactionType)
         {
-            Titletxt.Text = type == TransactionType.Expense ? "EXPENSE" : "INCOME ";
+            vm = new IncomeExpenseVm(transactionType);
+
+            Titletxt.Text = vm.TransType == TransactionType.Expense ? "EXPENSE" : "INCOME ";
+            Totaltxt.Text= vm.TransType == TransactionType.Expense ? "Total Expenses" : "Total Income";
+            this.BindingContext = vm;
+            
         }
 
         void AddTapped(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new NewIncomeExpensePage(transactionType), true);
+            //Navigation.PushAsync(new NewIncomeExpensePage(transactionType), true);
         }
     }
 }

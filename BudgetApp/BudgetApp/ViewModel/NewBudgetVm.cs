@@ -42,6 +42,11 @@ namespace BudgetApp.ViewModel
             set { description = value; }
         }
 
+        public ICommand BackCommand => new Command(() =>
+        {
+            App.Current.MainPage.Navigation.PopAsync();
+        });
+
         public ICommand SaveCommand => new Command(SaveBudget);
 
         public async void SaveBudget()

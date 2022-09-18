@@ -15,7 +15,7 @@
         <Grid ColumnDefinitions="Auto,*" ColumnSpacing="15">
             <ImageButton BackgroundColor="Transparent" Source="back.png"
                          HeightRequest="18" WidthRequest="18"
-                         VerticalOptions="Center"></ImageButton>
+                         VerticalOptions="Center" Command="{Binding BackCommand}"></ImageButton>
             <Label Grid.Column="1" x:Name="TitleTxt" Text="ADD NEW" TextColor="{DynamicResource TertiaryColor}"
                    VerticalOptions="Center" FontSize="18" FontFamily="NormalFont"></Label>
         </Grid>
@@ -103,7 +103,8 @@
                                 <Label Text="Category" FontSize="14" TextColor="#707070" FontFamily="NormalFont"></Label>
                                 <Frame Style="{StaticResource EntryFrame}">
                                     <Picker TextColor="#2C2A57" FontSize="14" FontFamily="NormalFont"
-                                            ItemsSource="{Binding Category.Title}" SelectedIndex="{Binding CategoryIndex}">
+                                            ItemsSource="{Binding Category}" ItemDisplayBinding="{Binding Title}"
+                                            SelectedIndex="{Binding CategoryIndex}">
                                     </Picker>
                                 </Frame>
                             </StackLayout>
