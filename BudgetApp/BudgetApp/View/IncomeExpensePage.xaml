@@ -50,7 +50,7 @@
                 </pv:PancakeView>
             </Grid>
         </pv:PancakeView>
-        <RefreshView Grid.Row="2" IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand}">
+        <RefreshView Grid.Row="2" IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand, Mode=OneWay}">
             <CollectionView  SelectionMode="None" ItemsSource="{Binding Transactions}">
             <CollectionView.Header>
                 <Label Text="TRANSACTIONS" FontSize="12" FontFamily="NormalFont"
