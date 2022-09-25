@@ -36,6 +36,17 @@ namespace BudgetApp.ViewModel
             }
         }
 
+        private bool isRefreshing;
+        public bool IsRefreshing
+        {
+            get { return isRefreshing; }
+            set
+            {
+                isRefreshing = value;
+                OnPropertyChanged();
+            }
+        }
+
         public ICommand BackCommand => new Command(() =>
         {
             App.Current.MainPage.Navigation.PopAsync();
@@ -46,14 +57,36 @@ namespace BudgetApp.ViewModel
             App.Current.MainPage.Navigation.PushAsync(new NewBudgetPage());
         });
 
+        public ICommand RefreshCommand => new Command(() =>
+        {
+            if (IsRefreshing)
+                return;
+
+            IsRefreshing = true;
+            GetBudgets();
+            IsRefreshing = false;
+        });
+
         private void GetBudgets()
         {
-            //var budgets= await service.GetBudgetsAsync();
-            //Budgets= budgets.Where(x=>x.DateCreated.Month==DateTime.Now.Month |
-            //x.Duration==Duration.Monthly).ToList();
+            var budgets = service.QueryBudgets(x => x.DateCreated.Month == DateTime.Now.Month |
+             x.Duration == Duration.Monthly).ToList();
 
-            Budgets = service.QueryBudgets(x => x.DateCreated.Month == DateTime.Now.Month |
-            x.Duration == Duration.Monthly).ToList();
+            if (budgets.Count() > 0)
+            {
+                var startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+                var endDate = startDate.AddMonths(1).AddDays(-1);
+                var transactions = service.QueryTransactions(x => x.Date >= startDate && x.Date <= endDate
+                                        && x.TransactionType== TransactionType.Expense).ToList();
+
+                foreach (var budget in budgets)
+                {
+                    budget.AmountSpent = transactions.Where(x => x.Category == budget.Title).Sum(x => x.Amount);
+                }
+            }
+            Budgets = budgets;
+            // Budgets = service.QueryBudgets(x => x.DateCreated.Month == DateTime.Now.Month |
+            // x.Duration == Duration.Monthly).ToList();
         }
     }
 }

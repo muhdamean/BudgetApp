@@ -67,6 +67,7 @@ namespace BudgetApp.ViewModel
                     Device.BeginInvokeOnMainThread(async () =>
                     {
                         await App.Current.MainPage.Navigation.PopAsync();
+                        MessagingCenter.Send(this, "update");
                     });
                 });
             else

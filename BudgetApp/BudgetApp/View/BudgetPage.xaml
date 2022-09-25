@@ -41,7 +41,8 @@
         </pv:PancakeView>
         <pv:PancakeView Grid.Row="2" CornerRadius="15" BackgroundColor="White"
                         Padding="20">
-            <CollectionView SelectionMode="None" ItemsSource="{Binding Budgets}">
+            <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand, Mode=OneWay}">
+                <CollectionView SelectionMode="None" ItemsSource="{Binding Budgets}">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical" ItemSpacing="12"></LinearItemsLayout>
                 </CollectionView.ItemsLayout>
@@ -72,6 +73,7 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+            </RefreshView>
         </pv:PancakeView>
         <Grid Grid.Row="3"  VerticalOptions="Center" HorizontalOptions="Center"
              BackgroundColor="{DynamicResource SecondaryColor}"
