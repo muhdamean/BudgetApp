@@ -23,7 +23,7 @@
             <StackLayout  Spacing="0"> 
                 <pv:PancakeView CornerRadius="15" BackgroundColor="White"
                          Margin="0,25,0,0" Padding="20">
-                    <Grid RowDefinitions="Auto,Auto" RowSpacing="50">
+                    <Grid RowDefinitions="Auto,Auto" RowSpacing="50" >
                         <pv:PancakeView HeightRequest="40" CornerRadius="20">
                             <pv:PancakeView.Border>
                                 <pv:Border Color="{DynamicResource SecondaryColor}" Thickness="1" />

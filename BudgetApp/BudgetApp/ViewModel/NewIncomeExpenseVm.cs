@@ -79,7 +79,7 @@ namespace BudgetApp.ViewModel
                 Amount = Amount,
                 Date = TransactionDate,
                 Description = Description,
-                TransactionType=TransactionType.ToString()
+                TransactionType=TransactionType
             };
             if (categoryIndex > -1)
                 transaction.Category = Category[categoryIndex].Title;
@@ -91,7 +91,9 @@ namespace BudgetApp.ViewModel
                 {
                     Device.BeginInvokeOnMainThread(async () =>
                     {
+                        
                         await App.Current.MainPage.Navigation.PopAsync();
+                        MessagingCenter.Send(this, "update");
                     });
                 });
             else

@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Input;
 using BudgetApp.Data;
 using BudgetApp.Model;
+using BudgetApp.View;
+using Xamarin.Forms;
 
 namespace BudgetApp.ViewModel
 {
@@ -37,8 +40,42 @@ namespace BudgetApp.ViewModel
             {
                 transaction = value;
                 OnPropertyChanged();
+                OnPropertyChanged(nameof(TotalAmount));
             }
         }
+
+        private bool isRefreshing;
+        public bool IsRefreshing
+        {
+            get { return isRefreshing; }
+            set
+            {
+                isRefreshing = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public float TotalAmount => Transactions.Sum(x => x.Amount);
+
+        public ICommand BackCommand => new Command(() =>
+        {
+            App.Current.MainPage.Navigation.PopAsync();
+        });
+
+        public ICommand NewCommand => new Command(() =>
+        {
+            App.Current.MainPage.Navigation.PushAsync(new NewIncomeExpensePage(TransType));
+        });
+
+        public ICommand RefreshCommand => new Command(() =>
+        {
+            if (IsRefreshing)
+                return;
+
+            IsRefreshing = true;
+            GetTransaction();
+            IsRefreshing = false;
+        });
 
         private void Init(TransactionType transactionType)
         {
@@ -52,7 +89,7 @@ namespace BudgetApp.ViewModel
         private void GetTransaction()
         {
             Transactions = service.QueryTransactions(x => x.Date >= startDate &&
-                x.Date <= endDate && x.TransactionType == TransType.ToString()).ToList();
+                x.Date <= endDate && x.TransactionType == TransType).ToList();
         }
     }
 }

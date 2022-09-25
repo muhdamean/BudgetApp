@@ -15,7 +15,7 @@
         <Grid ColumnDefinitions="Auto,*" ColumnSpacing="25">
             <ImageButton BackgroundColor="Transparent" Source="back.png"
                          HeightRequest="18" WidthRequest="18"
-                         VerticalOptions="Center"></ImageButton>
+                         VerticalOptions="Center" Command="{Binding BackCommand}"></ImageButton>
             <Label Grid.Column="1" x:Name="Titletxt" TextColor="{DynamicResource TertiaryColor}"
                    VerticalOptions="Center" FontSize="18" FontFamily="NormalFont"></Label>
         </Grid>
@@ -25,7 +25,7 @@
                 <StackLayout Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="Center">
                     <Label x:Name="Totaltxt" HorizontalOptions="Center"
                            FontSize="14" FontFamily="NormalFont" TextColor="White"></Label>
-                    <Label Text="$620.11" HorizontalOptions="Center"
+                    <Label Text="{Binding TotalAmount, StringFormat='${0}'}" HorizontalOptions="Center"
                            FontSize="25" TextColor="White" FontFamily="BoldFont"></Label>
                 </StackLayout>
                 <pv:PancakeView Grid.Row="1" Padding="15" HeightRequest="55" CornerRadius="15"
@@ -47,9 +47,9 @@
                     </StackLayout>
                 </pv:PancakeView>
             </Grid>
-
         </pv:PancakeView>
-        <CollectionView Grid.Row="2" SelectionMode="None" ItemsSource="{Binding Transactions}">
+        <RefreshView Grid.Row="2" IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand}">
+            <CollectionView  SelectionMode="None" ItemsSource="{Binding Transactions}">
             <CollectionView.Header>
                 <Label Text="TRANSACTIONS" FontSize="12" FontFamily="NormalFont"
                        TextColor="{DynamicResource TertiaryColor}"></Label>
@@ -61,7 +61,7 @@
                 <DataTemplate>
                      <Grid  ColumnDefinitions="Auto,2*,*" VerticalOptions="Start" ColumnSpacing="12">
                         <Ellipse Style="{StaticResource DotEllipse}"
-                                    Stroke="{DynamicResource OrangeColor}"
+                                    Stroke="{Binding Color}"
                                     VerticalOptions="Center"></Ellipse>
                         <StackLayout Grid.Column="1" VerticalOptions="Center">
                             <Label Text="{Binding Title}" FontFamily="normal " FontSize="14" TextColor="White"></Label>
@@ -79,14 +79,13 @@
             </CollectionView.ItemTemplate>
 
         </CollectionView>
-
+        </RefreshView>
        <Grid Grid.Row="2"  VerticalOptions="End" HorizontalOptions="End"
              BackgroundColor="{DynamicResource TertiaryColor}"
              HeightRequest="50" WidthRequest="50">
             <Grid.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="AddTapped"></TapGestureRecognizer>
-
-                </Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NewCommand}"></TapGestureRecognizer>
+            </Grid.GestureRecognizers>
            <Grid.Clip>
                <EllipseGeometry RadiusX="25" RadiusY="25" Center="25,25"></EllipseGeometry>
 

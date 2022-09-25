@@ -26,9 +26,20 @@ namespace BudgetApp.View
             
         }
 
-        void AddTapped(System.Object sender, System.EventArgs e)
+        protected override void OnAppearing()
         {
-            //Navigation.PushAsync(new NewIncomeExpensePage(transactionType), true);
+            base.OnAppearing();
+
+            MessagingCenter.Subscribe<NewIncomeExpenseVm>(this, "update", (obj) =>
+            {
+                vm.RefreshCommand.Execute(null);
+            });
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            MessagingCenter.Unsubscribe<NewIncomeExpenseVm>(this, "update");
         }
     }
 }

@@ -1,4 +1,7 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
+using Xamarin.Forms;
+
 namespace BudgetApp.Model
 {
     public class Transaction
@@ -9,7 +12,10 @@ namespace BudgetApp.Model
         public DateTime Date { get; set; }
         public string Description { get; set; }
         public string Category { get; set; }
-        public string TransactionType { get; set; }
+        public TransactionType TransactionType { get; set; }
+
+        [NotMapped]
+        public Color Color => TransactionType == TransactionType.Income ? Color.FromHex("#21C8ED") : Color.FromHex("#FFC44B");
     }
 
     public enum TransactionType
