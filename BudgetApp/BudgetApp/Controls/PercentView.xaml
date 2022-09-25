@@ -6,7 +6,7 @@
 
     <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <Skia:SKCanvasView x:Name="canvasView" PaintSurface="CanvasView_PaintSurface"></Skia:SKCanvasView>
-        <Label x:Name="animText" Text="0" FontSize="15" HorizontalOptions="Center"
+        <Label x:Name="animText" Text="0%" FontSize="15" HorizontalOptions="Center"
                VerticalOptions="Center"></Label>
     </Grid>
 </ContentView>

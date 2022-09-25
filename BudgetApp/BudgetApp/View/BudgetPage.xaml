@@ -28,7 +28,7 @@
                 <StackLayout HorizontalOptions="Start" VerticalOptions="Center">
                     <Label Text="Total Budgets" HorizontalOptions="Start"
                             FontSize="14" FontFamily="NormalFont" TextColor="White"></Label>
-                    <Label Text="{Binding TotalBudget, StringFormat='${0}'}" HorizontalOptions="Center"
+                    <Label Text="{Binding TotalBudget, StringFormat='${0}'}" HorizontalOptions="Start"
                             FontSize="25" TextColor="White" FontFamily="BoldFont"></Label>
                 </StackLayout>
                 <Grid Grid.Column="1" HeightRequest="55" WidthRequest="55"
@@ -48,10 +48,10 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                          <StackLayout Spacing="12">
-                            <Grid  ColumnDefinitions="*,2*,3*"  VerticalOptions="Start" ColumnSpacing="12">
+                            <Grid  ColumnDefinitions="Auto,2*,3*"  VerticalOptions="Start" ColumnSpacing="12">
                                <c:PercentView Value="{Binding Percentage}" WidthRequest="50"
                                        HeightRequest="50" FontSize="12" FontFamily="MediumFont"
-                                       TextColor="#2C2A57" Color="Orange"
+                                       TextColor="{Binding Color}" Color="Orange"
                                        VerticalOptions="Center" 
                                        >
                                </c:PercentView>
