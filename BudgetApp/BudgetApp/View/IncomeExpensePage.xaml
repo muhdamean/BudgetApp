@@ -43,7 +43,9 @@
                     <StackLayout Spacing="5">
                         <Label FontSize="10" TextColor="#2C2A57" Text="End Date"
                                FontFamily="NormalFont"></Label>
-                        <DatePicker Date="{Binding EndDate}" FontSize="16" TextColor="#2C2A57" FontFamily="MediumFont"></DatePicker>
+                        <DatePicker Date="{Binding EndDate}" FontSize="16"
+                                    TextColor="#2C2A57" FontFamily="MediumFont"
+                                    DateSelected="FileterByDate"></DatePicker>
                     </StackLayout>
                 </pv:PancakeView>
             </Grid>

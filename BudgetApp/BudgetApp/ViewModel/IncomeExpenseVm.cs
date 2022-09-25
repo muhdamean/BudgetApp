@@ -5,6 +5,7 @@ using System.Windows.Input;
 using BudgetApp.Data;
 using BudgetApp.Model;
 using BudgetApp.View;
+using BudgetApp.View.Popup;
 using Xamarin.Forms;
 
 namespace BudgetApp.ViewModel
@@ -75,6 +76,17 @@ namespace BudgetApp.ViewModel
             IsRefreshing = true;
             GetTransaction();
             IsRefreshing = false;
+        });
+
+        public ICommand FilterCommand => new Command(() =>
+        {
+            if (endDate < startDate)
+            {
+                MessageDialog.Show("Filter", "The end date cannot be earlier than the start date", "Ok");
+                return;
+            }
+
+            RefreshCommand.Execute(null);
         });
 
         private void Init(TransactionType transactionType)

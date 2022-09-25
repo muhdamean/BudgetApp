@@ -41,6 +41,11 @@ namespace BudgetApp.View
             base.OnDisappearing();
             MessagingCenter.Unsubscribe<NewIncomeExpenseVm>(this, "update");
         }
+
+        void FileterByDate(System.Object sender, Xamarin.Forms.DateChangedEventArgs e)
+        {
+            vm.FilterCommand.Execute(null);
+        }
     }
 }
 
