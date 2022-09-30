@@ -15,7 +15,7 @@
 
     <Grid > 
         <Grid RowDefinitions="Auto, Auto, Auto, *" Padding="25" RowSpacing="25">
-            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="25">
+            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="15">
                 <ImageButton BackgroundColor="Transparent" Source="menu.png"
                              HeightRequest="18" WidthRequest="18"
                              VerticalOptions="Center"
@@ -24,12 +24,12 @@
                        VerticalOptions="Center" FontSize="18" FontFamily="NormalFont"></Label>
             </Grid>
             <pv:PancakeView Grid.Row="1" CornerRadius="15" BackgroundColor="{DynamicResource SecondaryColor}"
-                            HeightRequest="215" Margin="0,50,0,0" Padding="10">
+                            HeightRequest="215" Margin="0,25,0,0" Padding="10">
                 <Grid ColumnDefinitions="*,*" RowDefinitions="*,1.2*">
                     <StackLayout Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="Center">
                         <Label Text="Current balance" HorizontalOptions="Center"
                                FontSize="14" FontFamily="NormalFont" TextColor="White"></Label>
-                        <Label Text="$21,500.00" HorizontalOptions="Center"
+                        <Label Text="{Binding CurrentBalance, StringFormat='${0}'}" HorizontalOptions="Center"
                                FontSize="25" TextColor="White" FontFamily="BoldFont"></Label>
                     </StackLayout>
                     <pv:PancakeView Grid.Row="1" Padding="15" CornerRadius="15"
@@ -37,7 +37,7 @@
                         <StackLayout Spacing="10">
                             <Ellipse Style="{StaticResource DotEllipse}" Stroke="{DynamicResource SkyBlueColor}"></Ellipse>
                             <StackLayout Spacing="5">
-                                <Label Text="$7,500.90" FontSize="20" FontFamily="LightFont" TextColor="#2C2A57"></Label>
+                                <Label Text="{Binding CurrentIncome, StringFormat='${0:N2}'}" FontSize="20" FontFamily="LightFont" TextColor="#2C2A57"></Label>
                                 <Label Text="Income this month" TextColor="#2C2A57"
                                    FontSize="12" WidthRequest="70" HorizontalOptions="Start"></Label>
                             </StackLayout>
@@ -48,7 +48,7 @@
                         <StackLayout Spacing="10">
                             <Ellipse Style="{StaticResource DotEllipse}" Stroke="{DynamicResource OrangeColor}"></Ellipse>
                             <StackLayout Spacing="5">
-                                <Label Text="$620.11" FontSize="20" FontFamily="LightFont" TextColor="#2C2A57"></Label>
+                                <Label Text="{Binding CurrentExpenses, StringFormat='${0:N2}'}" FontSize="20" FontFamily="LightFont" TextColor="#2C2A57"></Label>
                                 <Label Text="Expenses this month" TextColor="#2C2A57"
                                    FontSize="12" WidthRequest="80" HorizontalOptions="Start"></Label>
                             </StackLayout>
@@ -57,7 +57,8 @@
                 </Grid>
 
             </pv:PancakeView>
-            <pv:PancakeView Grid.Row="2" Padding="10,5" CornerRadius="10" HeightRequest="40" BackgroundColor="White">
+            <pv:PancakeView Grid.Row="2" Padding="10,5" CornerRadius="10" HeightRequest="40"
+                            BackgroundColor="White" IsVisible="False">
                 <Grid ColumnDefinitions="*,Auto">
                     <StackLayout Orientation="Horizontal" VerticalOptions="Center">
                         <Image Source="info" WidthRequest="28" HeightRequest="28"></Image>
@@ -68,24 +69,27 @@
                 </Grid>
             </pv:PancakeView>
 
-            <CollectionView Grid.Row="3">
+            <CollectionView Grid.Row="3" ItemsSource="{Binding RecenetTransactions}">
                 <CollectionView.Header>
                     <Label Text="ACTIVITIES" FontSize="12" FontFamily="NormalFont"
                            TextColor="{DynamicResource TertiaryColor}"></Label>
                 </CollectionView.Header>
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="15"/>
+                </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                         <Grid  ColumnDefinitions="*,2*,3*" VerticalOptions="Start" ColumnSpacing="12">
+                         <Grid  ColumnDefinitions="*,2*,3*" VerticalOptions="Start" ColumnSpacing="15">
                             <Ellipse Style="{StaticResource DotEllipse}"
-                                        Stroke="{DynamicResource OrangeColor}"
+                                        Stroke="{Binding Color}"
                                         VerticalOptions="Center"></Ellipse>
-                            <StackLayout Grid.Column="1">
-                                <Label Text="UI/UX design" FontFamily="normal " FontSize="14" TextColor="White"></Label>
-                                <Label Text="Tuesday, June 20, 2020" FontFamily="NormalFont"
+                            <StackLayout Grid.Column="1" VerticalOptions="Center">
+                                <Label Text="{Binding Title}" FontFamily="normal " FontSize="14" TextColor="White"></Label>
+                                <Label Text="{Binding Date, StringFormat='{0:dddd, MMMM dd, yyyy}'}" FontFamily="NormalFont"
                                         FontSize="12" Opacity="0.65" TextColor="White"
                                         Margin="0,-5,0,0"></Label>
                             </StackLayout>
-                            <Label Grid.Column="2" Text="+$3,500,00" TextColor="White"
+                            <Label Grid.Column="2" Text="{Binding Amount, StringFormat='${0:N}'}" TextColor="White"
                                     FontFamily="MediumFont" HorizontalOptions="End"
                                     VerticalOptions="Center"></Label>
                         </Grid>
