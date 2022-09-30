@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
+using System.Windows.Input;
 using BudgetApp.Data;
 using BudgetApp.Model;
 using BudgetApp.View;
+using BudgetApp.View.Popup;
 
 namespace BudgetApp.ViewModel
 {
@@ -47,16 +49,40 @@ namespace BudgetApp.ViewModel
         public float CurrentExpenses { get; set; }
         public List<Transaction> RecenetTransactions { get; set; }
 
+        private bool isRefreshing;
+        public bool IsRefreshing
+        {
+            get { return isRefreshing; }
+            set
+            {
+                isRefreshing = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ICommand RefreshCommand => new Xamarin.Forms.Command(() =>
+        {
+            if (IsRefreshing)
+                return;
+
+            IsRefreshing = true;
+            GetTransactions();
+            IsRefreshing = false;
+        });
+
+        
+
+       
 
         private async void GetTransactions()
         {
             var transactions = await service.GetTransactionsAsync();
             Transactions = transactions.ToList();
 
-            var startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-            var endDate = startDate.AddMonths(1).AddDays(-1);
+            var endDate = DateTime.Now;
+            var startDate = endDate.AddDays(-7);
 
-            RecenetTransactions = Transactions.Where(x => x.Date >= startDate && x.Date <= endDate).ToList();
+            RecenetTransactions = Transactions.Where(x => x.Date >= startDate && x.Date <= endDate).OrderByDescending(x=>x.Date).ToList();
             CurrentIncome = RecenetTransactions.Where(x => x.TransactionType == TransactionType.Income).Sum(x => x.Amount);
             CurrentExpenses = RecenetTransactions.Where(x => x.TransactionType == TransactionType.Expense).Sum(x => x.Amount);
 

@@ -51,7 +51,7 @@
             </Grid>
         </pv:PancakeView>
         <RefreshView Grid.Row="2" IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand, Mode=OneWay}">
-            <CollectionView  SelectionMode="None" ItemsSource="{Binding Transactions}">
+            <CollectionView x:Name="TransCollectionView" SelectionMode="None" ItemsSource="{Binding Transactions}">
             <CollectionView.Header>
                 <Label Text="TRANSACTIONS" FontSize="12" FontFamily="NormalFont"
                        TextColor="{DynamicResource TertiaryColor}"></Label>
@@ -61,23 +61,30 @@
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                     <Grid  ColumnDefinitions="Auto,2*,*" VerticalOptions="Start" ColumnSpacing="12">
-                        <Ellipse Style="{StaticResource DotEllipse}"
-                                    Stroke="{Binding Color}"
-                                    VerticalOptions="Center"></Ellipse>
-                        <StackLayout Grid.Column="1" VerticalOptions="Center">
-                            <Label Text="{Binding Title}" FontFamily="normal " FontSize="14" TextColor="White"></Label>
-                            <Label Text="{Binding Date, StringFormat='{0:dddd, MMMM dd, yyyy}'}" FontFamily="NormalFont"
-                                    FontSize="12" Opacity="0.65" TextColor="White"
-                                    Margin="0,-5,0,0"></Label>
-                        </StackLayout>
-                        <Label Grid.Column="2" Text="{Binding Amount, StringFormat='${0}'}" TextColor="White"
-                                FontFamily="MediumFont" HorizontalOptions="End"
-                                VerticalOptions="Center"></Label>
-                    </Grid>
-
+                     <SwipeView BackgroundColor="{DynamicResource PrimaryColor}">
+                        <SwipeView.RightItems>
+                            <SwipeItems Mode="Execute">
+                                <SwipeItem Text="Delete" BackgroundColor="Red" IconImageSource="delete.png" 
+                                           Command="{Binding Source={x:Reference TransCollectionView}, Path=BindingContext.DeleteCommand}"
+                                           CommandParameter="{Binding Source={x:Reference MainView},Path=BindingContext}"/>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <Grid x:Name="MainView" ColumnDefinitions="Auto,2*,*" VerticalOptions="Start" ColumnSpacing="12">
+                            <Ellipse Style="{StaticResource DotEllipse}"
+                                        Stroke="{Binding Color}"
+                                        VerticalOptions="Center"></Ellipse>
+                            <StackLayout Grid.Column="1" VerticalOptions="Center">
+                                <Label Text="{Binding Title}" FontFamily="normal " FontSize="14" TextColor="White"></Label>
+                                <Label Text="{Binding Date, StringFormat='{0:dddd, MMMM dd, yyyy}'}" FontFamily="NormalFont"
+                                        FontSize="12" Opacity="0.65" TextColor="White"
+                                        Margin="0,-5,0,0"></Label>
+                            </StackLayout>
+                            <Label Grid.Column="2" Text="{Binding Amount, StringFormat='${0}'}" TextColor="White"
+                                    FontFamily="MediumFont" HorizontalOptions="End"
+                                    VerticalOptions="Center"></Label>
+                        </Grid>
+                     </SwipeView>
                 </DataTemplate>
-
             </CollectionView.ItemTemplate>
 
         </CollectionView>

@@ -14,7 +14,7 @@ namespace BudgetApp
         public App ()
         {
             InitializeComponent();
-            //Device.SetFlags(new[] { "Shapes_Experimental" });
+            //Device.SetFlags(new[] { "Shapes_Experimental", "SwipView_Experimental"}); //set flag if package is in experimental
             MainPage = new NavigationPage(new DashboardPage());
         }
 

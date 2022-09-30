@@ -78,6 +78,17 @@ namespace BudgetApp.ViewModel
             IsRefreshing = false;
         });
 
+        public ICommand DeleteCommand => new Command((obj) =>
+        {
+            MessageDialog.Show("Delete Transaction", "Are you sure you want to delete this transaction", "Yes", async () =>
+            {
+                var trans = obj as Transaction;
+                var result = await service.DeleteTransactionAsync(trans);
+                if (result)
+                    RefreshCommand.Execute(null);
+            }, "No", null);
+        });
+
         public ICommand FilterCommand => new Command(() =>
         {
             if (endDate < startDate)
